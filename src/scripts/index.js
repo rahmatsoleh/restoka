@@ -1,4 +1,5 @@
 import 'regenerator-runtime'; /* for async await transpile */
-import '../styles/main.css';
+import './views/container/header.js';
 
-console.log('Hello Coders! :)');
+
+document.querySelector('header').innerHTML = `<header-element></header-element>`;

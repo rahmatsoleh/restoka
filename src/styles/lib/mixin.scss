@@ -1,0 +1,15 @@
+@use "root.scss" as root;
+
+@mixin flex($justify: start, $align: start) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin hamburger {
+  background-color: root.$orange;
+  border-radius: 5px;
+  width: 30px;
+  height: 5px;
+  transition: all 0.3s ease-in-out;
+}

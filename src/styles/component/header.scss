@@ -1,0 +1,137 @@
+@use "../lib/root.scss" as root;
+@use "../lib/mixin.scss" as mixin;
+
+.app-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  .header-element {
+    @include mixin.flex(space-between, center);
+    padding: 1em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: root.$light;
+
+    button {
+      @include mixin.flex(center, center);
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      margin-right: 1em;
+      background-color: root.$light;
+      border: 1px solid root.$orange;
+      border-radius: 5px;
+      position: relative;
+
+      .btn-burger {
+        @include mixin.hamburger();
+      }
+
+      .btn-burger::before,
+      .btn-burger::after {
+        @include mixin.hamburger();
+        @include mixin.flex(center, center);
+        content: "";
+        position: absolute;
+      }
+
+      .btn-burger::before {
+        transform: translateY(-10px);
+      }
+
+      .btn-burger::after {
+        transform: translateY(10px);
+      }
+
+      &.open {
+        box-shadow: 0 0 5px root.$orange;
+
+        .btn-burger {
+          background-color: transparent;
+        }
+
+        .btn-burger::before {
+          transform: rotate(45deg);
+        }
+        .btn-burger::after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  nav {
+    width: 80vw;
+    height: fit-content;
+    border: 1px solid root.$orange;
+    box-shadow: 0 0 10px root.$orange;
+    margin: 1em auto 0;
+    transform: translateX(-100vw);
+    transition: 0.3s ease-in-out;
+    background-color: root.$light;
+
+    ul {
+      text-align: center;
+      padding: 1em;
+      li {
+        padding: 0.5em;
+        list-style: none;
+        a {
+          font-size: 2em;
+          text-decoration: none;
+          color: root.$orange;
+          font-weight: 600;
+        }
+      }
+
+      li:hover {
+        background-color: root.$orange;
+        transition: 0.5s;
+        a {
+          color: root.$light;
+        }
+      }
+    }
+  }
+
+  nav.show {
+    transform: translateX(0px);
+    transition: 0.3s ease-in-out;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .app-bar {
+    @include mixin.flex(space-between, center);
+    padding: 1em 1em;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: root.$light;
+
+    .header-element {
+      display: block;
+      box-shadow: none;
+      padding: 0;
+
+      button {
+        display: none;
+      }
+    }
+
+    nav {
+      transform: translateX(0px);
+      width: unset;
+      border: none;
+      box-shadow: none;
+      margin: 0;
+
+      ul {
+        padding: 0;
+        li {
+          display: inline-block;
+          padding: 0.5em 1em;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+}
