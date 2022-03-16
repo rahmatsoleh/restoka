@@ -1,0 +1,131 @@
+@use "../lib/root.scss" as root;
+@use "../lib/mixin.scss" as mixin;
+
+#hero {
+  width: 100%;
+  height: 250px;
+  margin-top: 105px;
+  overflow: hidden;
+  position: relative;
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .text-hero {
+    position: absolute;
+    z-index: 9;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    text-align: center;
+    color: root.$orange;
+    padding: 1em;
+    box-sizing: border-box;
+    @include mixin.flex(center, center);
+    flex-direction: column;
+
+    .slogan-top,
+    .slogan-bottom {
+      display: none;
+    }
+
+    .slogan-midle {
+      font-weight: 600;
+    }
+
+    form {
+      margin-top: 1.5em;
+      input {
+        display: block;
+        font-size: 1.3em;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid root.$dark;
+      }
+
+      button {
+        font-size: 1.3em;
+        padding: 10px 15px;
+        margin-top: 10px;
+        background-color: root.$orange;
+        color: root.$light;
+        border-radius: 5px;
+        border: 1px solid root.$orange;
+      }
+
+      button:hover {
+        background-color: #db8000;
+        border-color: #db8000;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+#hero::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0.3)
+  );
+}
+
+@media screen and (min-width: 768px) {
+  #hero {
+    height: 300px;
+    margin-top: 110px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+    .text-hero {
+      width: 80%;
+      margin: auto;
+
+      .slogan-top {
+        display: block;
+        font-weight: bold;
+        font-size: 1.2em;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #hero {
+    height: 350px;
+
+    .text-hero {
+      .slogan-bottom {
+        display: block;
+      }
+
+      form {
+        margin-top: 3em;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #hero {
+    min-width: 1000px;
+    border-radius: 10px;
+  }
+}

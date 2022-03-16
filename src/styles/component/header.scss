@@ -6,6 +6,7 @@
   top: 0;
   left: 0;
   right: 0;
+  z-index: 3;
   .header-element {
     @include mixin.flex(space-between, center);
     padding: 1em;
@@ -45,7 +46,6 @@
 
       &.open {
         box-shadow: 0 0 5px root.$orange;
-
         .btn-burger {
           background-color: transparent;
         }
@@ -98,6 +98,10 @@
     transform: translateX(0px);
     transition: 0.3s ease-in-out;
   }
+}
+
+.app-bar.top {
+  z-index: 99;
 }
 
 @media screen and (min-width: 768px) {

@@ -16,7 +16,7 @@ class Header extends HTMLElement {
                     </button>
                 </div>
                 <nav>
-                    <ul>
+                   <ul>
                         <li><a href="/">Home</a></li>
                         <li><a href="#">Favorite</a></li>
                         <li><a href="#" target="_blank" rel="noreferrer">About Us</a></li>
@@ -30,8 +30,11 @@ class Header extends HTMLElement {
 
     openNavigation(){
         const navbar = document.querySelector('.app-bar nav');
+        const appBar = document.querySelector('.app-bar');
+
         this.classList.toggle('open');
         navbar.classList.toggle('show');
+        appBar.classList.toggle('top');
     }
 }
 
