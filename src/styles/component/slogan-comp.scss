@@ -1,0 +1,77 @@
+@use "../lib/root.scss" as root;
+@use "../lib/mixin.scss" as mixin;
+
+#slogan-comp {
+  background-color: root.$orange;
+  .thumb-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  .slogan-desc {
+    margin-top: 1em;
+    padding: 1em;
+
+    p {
+      font-size: 1.5em;
+      color: root.$light;
+      font-weight: bold;
+    }
+  }
+}
+
+@media screen and (min-width: 425px) {
+  #slogan-comp {
+    .thumb-image {
+      height: 250px;
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #slogan-comp {
+    @include mixin.flex(end, center);
+    flex-direction: row-reverse;
+    gap: 1em;
+
+    .thumb-image {
+      height: 200px;
+    }
+
+    .slogan-desc {
+      margin-top: 0;
+      padding: 0;
+      text-align: end;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #slogan-comp {
+    gap: 2em;
+    .thumb-image {
+      height: 300px;
+    }
+
+    .slogan-desc {
+      p {
+        font-size: 2em;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  #slogan-comp {
+    .thumb-image {
+      height: 350px;
+    }
+  }
+}
