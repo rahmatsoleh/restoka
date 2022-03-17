@@ -1,0 +1,40 @@
+@use "../lib/root.scss" as root;
+@use "../lib/mixin.scss" as mixin;
+
+.category-item {
+  width: fit-content;
+  text-align: center;
+  text-decoration: none;
+  color: root.$red;
+
+  .thumb-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.5em;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  &:hover {
+    .thumb-img {
+      transition: 2s;
+      transform: scale(0.95);
+
+      img {
+        transition: 2s;
+        transform: scale(1.2);
+      }
+    }
+  }
+}

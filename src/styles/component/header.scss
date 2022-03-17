@@ -2,16 +2,21 @@
 @use "../lib/mixin.scss" as mixin;
 
 .app-bar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 3;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // right: 0;
+  // z-index: 3;
   .header-element {
     @include mixin.flex(space-between, center);
     padding: 1em;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     background-color: root.$light;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
 
     button {
       @include mixin.flex(center, center);
@@ -43,20 +48,6 @@
       .btn-burger::after {
         transform: translateY(10px);
       }
-
-      &.open {
-        box-shadow: 0 0 5px root.$orange;
-        .btn-burger {
-          background-color: transparent;
-        }
-
-        .btn-burger::before {
-          transform: rotate(45deg);
-        }
-        .btn-burger::after {
-          transform: rotate(-45deg);
-        }
-      }
     }
   }
 
@@ -69,6 +60,11 @@
     transform: translateX(-100vw);
     transition: 0.3s ease-in-out;
     background-color: root.$light;
+    position: absolute;
+    top: 90px;
+    left: 0;
+    right: 0;
+    z-index: 99;
 
     ul {
       text-align: center;
@@ -94,14 +90,25 @@
     }
   }
 
-  nav.show {
-    transform: translateX(0px);
-    transition: 0.3s ease-in-out;
-  }
-}
+  &.show {
+    .header-element {
+      box-shadow: 0 0 5px root.$orange;
+      .btn-burger {
+        background-color: transparent;
+      }
 
-.app-bar.top {
-  z-index: 99;
+      .btn-burger::before {
+        transform: rotate(45deg);
+      }
+      .btn-burger::after {
+        transform: rotate(-45deg);
+      }
+    }
+    nav {
+      transform: translateX(0px);
+      transition: 0.3s ease-in-out;
+    }
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -110,11 +117,16 @@
     padding: 1em 1em;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     background-color: root.$light;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
 
     .header-element {
       display: block;
       box-shadow: none;
       padding: 0;
+      position: static;
 
       button {
         display: none;
@@ -127,6 +139,7 @@
       border: none;
       box-shadow: none;
       margin: 0;
+      position: static;
 
       ul {
         padding: 0;

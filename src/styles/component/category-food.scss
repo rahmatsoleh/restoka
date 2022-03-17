@@ -1,0 +1,20 @@
+@use "../lib/root.scss" as root;
+@use "../lib/mixin.scss" as mixin;
+
+#category-food {
+  box-sizing: border-box;
+  padding: 2em;
+
+  h2 {
+    color: root.$red;
+    text-align: center;
+    text-transform: uppercase;
+    // font-size: 2em;
+  }
+  #list-category {
+    @include mixin.flex(center, center);
+    gap: 2em;
+    flex-wrap: wrap;
+    padding-top: 2em;
+  }
+}

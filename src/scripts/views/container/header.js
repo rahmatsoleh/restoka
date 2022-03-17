@@ -26,15 +26,16 @@ class Header extends HTMLElement {
         `;
 
         document.querySelector('button').addEventListener('click', this.openNavigation);
+        document.querySelector('main').addEventListener('click', this.closeNavigation);
     }
 
     openNavigation(){
-        const navbar = document.querySelector('.app-bar nav');
-        const appBar = document.querySelector('.app-bar');
+        const appBar = document.querySelector('.app-bar')
+        appBar.classList.toggle('show');
+    }
 
-        this.classList.toggle('open');
-        navbar.classList.toggle('show');
-        appBar.classList.toggle('top');
+    closeNavigation(){
+        document.querySelector('.app-bar').classList.remove('show');
     }
 }
 

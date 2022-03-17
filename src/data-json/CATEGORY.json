@@ -1,0 +1,32 @@
+{
+    "category" : [
+        {
+            "title" : "Bali",
+            "image" : "images/categori/bali.jpg"
+        },
+        {
+            "title" : "Italia",
+            "image" : "images/categori/italia.jpg"
+        },
+        {
+            "title" : "Jawa",
+            "image" : "images/categori/jawa.jpg"
+        },
+        {
+            "title" : "Modern",
+            "image" : "images/categori/modern.jpg"
+        },
+        {
+            "title" : "SOP",
+            "image" : "images/categori/sop.jpg"
+        },
+        {
+            "title" : "Spanyol",
+            "image" : "images/categori/spanyol.jpg"
+        },
+        {
+            "title" : "Italia",
+            "image" : "images/categori/sunda.jpg"
+        }
+    ]
+}
