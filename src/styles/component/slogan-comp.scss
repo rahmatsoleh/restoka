@@ -3,6 +3,7 @@
 
 #slogan-comp {
   background-color: root.$orange;
+  box-sizing: border-box;
   .thumb-image {
     width: 100%;
     height: 200px;
@@ -16,7 +17,6 @@
   }
 
   .slogan-desc {
-    margin-top: 1em;
     padding: 1em;
 
     p {

@@ -1,0 +1,27 @@
+@use "../lib/root.scss" as root;
+@use "../lib/mixin.scss" as mixin;
+
+#explore-restaurant {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 1em;
+  margin-top: 1em;
+
+  h2 {
+    text-align: center;
+    color: root.$red;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #explore-restaurant {
+    margin-top: 2em;
+    .list-restaurant {
+      @include mixin.flex(center, center);
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+  }
+}
