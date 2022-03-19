@@ -12,7 +12,7 @@ class CategoryFood extends HTMLElement {
     render(){
         this.innerHTML = `
             <article id="category-food">
-                <h2>Food Category</h2>
+                <h2 tabindex="0">Food Category</h2>
                 <div id="list-category"></div>
             </article>
         `;

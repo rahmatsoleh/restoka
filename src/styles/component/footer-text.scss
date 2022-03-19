@@ -1,0 +1,10 @@
+@use "../lib/root.scss" as root;
+
+footer {
+  background-color: root.$dark;
+  color: root.$light;
+  text-align: center;
+  padding: 1em;
+  font-weight: 600;
+  margin-top: 2em;
+}

@@ -1,0 +1,21 @@
+@use "../lib/root.scss" as root;
+
+.skip {
+  display: block;
+  position: absolute;
+  top: -100px;
+  left: 0.5em;
+  z-index: 999;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  background-color: root.$red;
+  color: root.$light;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.skip:focus {
+  top: 0.5em;
+}

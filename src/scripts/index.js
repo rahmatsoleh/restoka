@@ -4,24 +4,19 @@ import './views/container/hero.js';
 import './views/container/catagory-food.js';
 import './views/container/slogan-comp.js';
 import './views/container/explore-restaurant.js';
+import './views/container/footer-text.js';
+import './views/container/detail-restaurant.js';
+import './views/component/skip-content.js';
+import HomePage from './views/page/home-page';
 
 
-document.querySelector('header').innerHTML = `<header-element></header-element>`;
+const header = document.querySelector('header');
+const footer = document.querySelector('footer');
+const main = document.querySelector('main');
 
 
 
-const main = `
-    <hero-element></hero-element>
-    <category-food></category-food>
-    <slogan-comp></slogan-comp>
-    <explore-restaurant></explore-restaurant>
-    <div style="min-height:500px">lorem</div>
-`;
-// const main = `
-//     <hero-element></hero-element>
-//     <explore-restaurant></explore-restaurant>
-//     <div style="min-height:500px">lorem</div>
-// `;
+header.innerHTML = `<header-element></header-element>`;
+footer.innerHTML = `<footer-text></footer-text>`;
 
-document.querySelector('main').innerHTML = main;
-
+HomePage.mainHome(main);

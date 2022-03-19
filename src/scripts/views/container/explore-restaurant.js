@@ -3,6 +3,11 @@ import '../../../styles/component/explore-restaurant.scss';
 import { restaurants } from '../../../data-json/DATA.json';
 
 class ExploreRestaurant extends HTMLElement {
+    constructor(){
+        super();
+        this.resultData = this.findRestaurants();
+    }
+    
     connectedCallback(){
         this.render();
     }
@@ -10,7 +15,7 @@ class ExploreRestaurant extends HTMLElement {
     render(){
         this.innerHTML = `
             <article id="explore-restaurant">
-                <h2>explore restaurants</h2>
+                ${this.resultTitle()}
                 <div class="list-restaurant">
                     ${this.listRestaurant()}
                 </div>
@@ -20,8 +25,9 @@ class ExploreRestaurant extends HTMLElement {
 
     listRestaurant(){
         let restaurant = '';
+        const nothingList = `<h1>Kosong Cuy</h1>`;
 
-        restaurants.forEach(resto => {
+        this.resultData.forEach(resto => {
             restaurant += `
                 <restaurant-item
                     id="${resto.id}"
@@ -32,7 +38,7 @@ class ExploreRestaurant extends HTMLElement {
                     rating="${resto.rating}"
                 ></restaurant-item>`;
         })
-        return restaurant;
+        return restaurant || nothingList;
     }
 
     splitDescription(desc){
@@ -44,6 +50,23 @@ class ExploreRestaurant extends HTMLElement {
         templateDescription.push('...');
         const resultDescription = templateDescription.join('');
         return resultDescription;
+    }
+
+    findRestaurants(){
+        const keyword = this.getAttribute('keyword') || '';
+        const resultRestaurants = restaurants.filter(resto => resto.name.toLowerCase().includes(keyword.toLowerCase()));
+        return resultRestaurants;
+    }
+
+    resultTitle(){
+        const keyword = this.getAttribute('keyword') || '';
+
+        const explore = `<h2 tabindex="0">explore restaurants</h2>`;
+
+        const resultKeyword = `<p>Search Result <span>${keyword}</span></p>`
+
+        return (keyword) ? resultKeyword : explore;
+
     }
 }
 
