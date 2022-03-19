@@ -1,5 +1,5 @@
-import "../component/category-item.js";
-import "../../../styles/component/category-food.scss";
+import '../component/category-item.js';
+import '../../../styles/component/category-food.scss';
 import { category } from '../../../data-json/CATEGORY.json';
 
 class CategoryFood extends HTMLElement {
@@ -26,4 +26,4 @@ class CategoryFood extends HTMLElement {
     }
 }
 
-customElements.define("category-food", CategoryFood);
+customElements.define('category-food', CategoryFood);

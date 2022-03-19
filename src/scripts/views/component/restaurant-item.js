@@ -10,7 +10,7 @@ class RestaurantItem extends HTMLElement {
         this.city = this.getAttribute('city');
         this.rating = this.getAttribute('rating');
         this.render();
-        this.addEventListener("click", this.visitDetail);
+        this.addEventListener('click', this.visitDetail);
     }
 
     render(){

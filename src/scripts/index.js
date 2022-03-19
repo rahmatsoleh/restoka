@@ -7,7 +7,7 @@ import './views/container/explore-restaurant.js';
 import './views/container/footer-text.js';
 import './views/container/detail-restaurant.js';
 import './views/component/skip-content.js';
-import HomePage from './views/page/home-page';
+import HomePage from './views/page/home-page.js';
 
 
 const header = document.querySelector('header');

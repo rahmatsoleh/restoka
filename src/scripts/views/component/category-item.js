@@ -20,4 +20,4 @@ class CategoryItem extends HTMLElement {
     }
 }
 
-customElements.define("category-item", CategoryItem);
+customElements.define('category-item', CategoryItem);

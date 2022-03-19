@@ -25,7 +25,11 @@ class ExploreRestaurant extends HTMLElement {
 
     listRestaurant(){
         let restaurant = '';
-        const nothingList = `<h1>Kosong Cuy</h1>`;
+        const nothingList = `
+            <div class="nothing-resto">
+                <img src="images/restaurant.png" alt=""/>
+                <p>No Result Collections</p>
+            </div>`;
 
         this.resultData.forEach(resto => {
             restaurant += `
