@@ -12,7 +12,7 @@ class Hero extends HTMLElement {
         this.innerHTML = `
             <article id="hero">
                 <div class="hero-image">
-                    <img src="${HeroImage}" alt="" />
+                    <img src="${HeroImage}" alt="Restoka. Look For Your Favorite Restaurant" />
                 </div>
                 <div class="text-hero">
                     <span class="slogan-top">The most complete restaurant catalog for you</span>
