@@ -2,24 +2,23 @@ import '../../../styles/component/detail-restaurant.scss';
 import { restaurants } from '../../../data-json/DATA.json';
 
 class DetailRestaurant extends HTMLElement {
+  connectedCallback() {
+    this.dataId = this.dataset.id;
+    this.render();
+  }
 
-    connectedCallback(){
-        this.dataId = this.dataset.id;
-        this.render();
-    }
-
-    render(){
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
             <article id="detail-resto">
                 ${this.findResto(this.dataId)}
             </article>
         `;
-    }
+  }
 
-    findResto(dataId){
-        const resto = restaurants.find(resto => resto.id == dataId);
-        
-        let elementDetail = `
+  findResto(dataId) {
+    const resto = restaurants.find((resto) => resto.id === dataId);
+
+    const elementDetail = `
             <div class="resto-image">
                 <img src="${resto.pictureId}" alt="${resto.name}"/>
             </div>
@@ -30,8 +29,8 @@ class DetailRestaurant extends HTMLElement {
             </div>
             <p class="rating"><span>&#x2605;</span> ${resto.rating}</p>
         `;
-        return elementDetail;
-    }
+    return elementDetail;
+  }
 }
 
 customElements.define('detail-restaurant', DetailRestaurant);

@@ -3,13 +3,12 @@ import HomePage from '../page/home-page';
 import HeroImage from '../../../public/images/heros/hero-image_2.jpg';
 
 class Hero extends HTMLElement {
-    connectedCallback(){
-        this.render();
-        
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render(){
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
             <article id="hero">
                 <div class="hero-image">
                     <img src="${HeroImage}" alt="Restoka. Look For Your Favorite Restaurant" />
@@ -26,18 +25,18 @@ class Hero extends HTMLElement {
             </article>
         `;
 
-        this.querySelector('#hero form').addEventListener('submit', event => {
-            event.preventDefault();
-            this.searchData();
-        });
-    }
+    this.querySelector('#hero form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      this.searchData();
+    });
+  }
 
-    searchData(){
-        const query = this.querySelector('#hero form input').value;
-        const main = document.querySelector('main');
-         
-        (query) ? HomePage.searchPage(main, query) : location.reload();
-    }
+  searchData() {
+    const query = this.querySelector('#hero form input').value;
+    const main = document.querySelector('main');
+
+    (query) ? HomePage.searchPage(main, query) : location.reload();
+  }
 }
 
 customElements.define('hero-element', Hero);

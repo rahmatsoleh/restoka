@@ -1,12 +1,12 @@
 import '../../../styles/component/slogan-comp.scss';
 
 class SloganComp extends HTMLElement {
-    connectedCallback(){
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render(){
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
             <article id="slogan-comp">
                 <div class="thumb-image">
                     <img src="images/heros/hero-image_1.jpg" alt="">
@@ -16,7 +16,7 @@ class SloganComp extends HTMLElement {
                 </div>
             </article>
         `;
-    }
+  }
 }
 
 customElements.define('slogan-comp', SloganComp);
