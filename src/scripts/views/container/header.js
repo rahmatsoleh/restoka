@@ -17,9 +17,9 @@ class Header extends HTMLElement {
                 </div>
                 <nav>
                    <ul>
-                        <li><a href="/">Home</a></li>
-                        <li><a href="#">Favorite</a></li>
-                        <li><a href="https://github.com/rahmatsoleh" target="_blank" rel="noreferrer">About Us</a></li>
+                        <li><a href="#/">Home</a></li>
+                        <li><a href="#/favorite">Favorite</a></li>
+                        <li><a href="#/about">About Us</a></li>
                     </ul>
                 </nav>
             </div>

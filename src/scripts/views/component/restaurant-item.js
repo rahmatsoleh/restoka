@@ -1,5 +1,5 @@
 import '../../../styles/component/restaurant-item.scss';
-import HomePage from '../page/home-page';
+import HomePage from '../pages/home-page';
 
 class RestaurantItem extends HTMLElement {
   connectedCallback() {
@@ -23,7 +23,7 @@ class RestaurantItem extends HTMLElement {
                     <h3 tabindex="0">${this.name}</h3>
                     <p>&#x1F4CD; ${this.city}</p>
                     <p class="description">${this.desc}</p>
-                    <a  href="#" data-id="${this.id}" aria-label="Visit ${this.name}">visit this it &#x2794;</a>
+                    <a  href="#/detail/${this.id}" data-id="${this.id}" aria-label="Visit ${this.name}">visit this it &#x2794;</a>
                 </div>
                 <p class="rating"><span>&#x2605;</span> ${this.rating}</p>
             </div>

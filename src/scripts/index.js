@@ -7,20 +7,28 @@ import './views/container/explore-restaurant';
 import './views/container/footer-text';
 import './views/container/detail-restaurant';
 import './views/component/skip-content';
-import HomePage from './views/page/home-page';
+// import HomePage from './views/pages/home-page';
 import App from './views/app';
 
 const header = document.querySelector('header');
 const footer = document.querySelector('footer');
-const main = document.querySelector('main');
+// const main = document.querySelector('main');
 
 header.innerHTML = '<header-element></header-element>';
 footer.innerHTML = '<footer-text></footer-text>';
 
-HomePage.mainHome(main);
+// HomePage.mainHome(main);
 
 const app = new App({
   button: document.querySelector('.app-bar button'),
   drawer: document.querySelector('.app-bar'),
   content: document.querySelector('main'),
+});
+
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
+
+window.addEventListener('load', () => {
+  app.renderPage();
 });

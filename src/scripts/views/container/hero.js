@@ -1,5 +1,4 @@
 import '../../../styles/component/hero.scss';
-import HomePage from '../page/home-page';
 import HeroImage from '../../../public/images/heros/hero-image_2.jpg';
 
 class Hero extends HTMLElement {
@@ -33,9 +32,10 @@ class Hero extends HTMLElement {
 
   searchData() {
     const query = this.querySelector('#hero form input').value;
-    const main = document.querySelector('main');
+    const home = '#/';
+    const url = `#/search/${query}`;
 
-    (query) ? HomePage.searchPage(main, query) : location.reload();
+    (query) ? location.href = url : location.href = home;
   }
 }
 

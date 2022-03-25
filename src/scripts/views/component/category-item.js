@@ -9,7 +9,7 @@ class CategoryItem extends HTMLElement {
 
   render() {
     this.innerHTML = `
-            <a href="#" class="category-item">
+            <a href="#/search/${this.title}" class="category-item">
                 <div class="thumb-img">
                     <img src="${this.image}" alt="${this.title}"/>
                 </div>

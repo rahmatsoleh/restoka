@@ -1,54 +1,52 @@
 import '../component/restaurant-item';
 import '../../../styles/component/explore-restaurant.scss';
-import { restaurants } from '../../../data-json/DATA.json';
+import RestaurantApi from '../../data/restaurant-api';
+import API_ENDPOINT from '../../globals/api-endpoint';
 
 class ExploreRestaurant extends HTMLElement {
-  constructor() {
-    super();
-    this.resultData = this.findRestaurants();
-  }
-
   connectedCallback() {
     this.render();
   }
 
-  render() {
+  async render() {
+    const listDataRestaurants = await this.listRestaurant();
     this.innerHTML = `
             <article id="explore-restaurant">
                 ${this.resultTitle()}
                 <div class="list-restaurant">
-                    ${this.listRestaurant()}
+                    ${listDataRestaurants}
                 </div>
             </article>
         `;
   }
 
-  listRestaurant() {
-    let restaurant = '';
+  async listRestaurant() {
+    let cardRestaurant = '';
+    const restaurants = await this.findRestaurants();
     const nothingList = `
             <div class="nothing-resto">
                 <img src="images/restaurant.png" alt=""/>
                 <p>No Result Collections</p>
             </div>`;
 
-    this.resultData.forEach((resto) => {
-      restaurant += `
+    restaurants.forEach((resto) => {
+      cardRestaurant += `
                 <restaurant-item
                     id="${resto.id}"
                     name="${resto.name}"
                     desc="${resto.description}"
-                    image="${resto.pictureId}"
+                    image="${API_ENDPOINT.PICTURE_SM(resto.pictureId)}"
                     city="${resto.city}"
                     rating="${resto.rating}"
                 ></restaurant-item>`;
     });
-    return restaurant || nothingList;
+    return cardRestaurant || nothingList;
   }
 
-  findRestaurants() {
+  async findRestaurants() {
     const keyword = this.getAttribute('keyword') || '';
-    const resultRestaurants = restaurants.filter((resto) => resto.name.toLowerCase().includes(keyword.toLowerCase()));
-    return resultRestaurants;
+    const restaurants = keyword ? await RestaurantApi.search(keyword) : await RestaurantApi.list();
+    return restaurants;
   }
 
   resultTitle() {
