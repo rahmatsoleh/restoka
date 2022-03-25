@@ -24,18 +24,6 @@ class Header extends HTMLElement {
                 </nav>
             </div>
         `;
-
-    document.querySelector('button').addEventListener('click', this.openNavigation);
-    document.querySelector('main').addEventListener('click', this.closeNavigation);
-  }
-
-  openNavigation() {
-    const appBar = document.querySelector('.app-bar');
-    appBar.classList.toggle('show');
-  }
-
-  closeNavigation() {
-    document.querySelector('.app-bar').classList.remove('show');
   }
 }
 

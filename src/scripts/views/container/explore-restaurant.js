@@ -45,17 +45,6 @@ class ExploreRestaurant extends HTMLElement {
     return restaurant || nothingList;
   }
 
-  splitDescription(desc) {
-    const fullDescription = desc.split('');
-    const templateDescription = [];
-    for (let i = 0; i < 60; i++) {
-      templateDescription.push(fullDescription[i]);
-    }
-    templateDescription.push('...');
-    const resultDescription = templateDescription.join('');
-    return resultDescription;
-  }
-
   findRestaurants() {
     const keyword = this.getAttribute('keyword') || '';
     const resultRestaurants = restaurants.filter((resto) => resto.name.toLowerCase().includes(keyword.toLowerCase()));

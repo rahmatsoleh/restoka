@@ -8,6 +8,7 @@ import './views/container/footer-text';
 import './views/container/detail-restaurant';
 import './views/component/skip-content';
 import HomePage from './views/page/home-page';
+import App from './views/app';
 
 const header = document.querySelector('header');
 const footer = document.querySelector('footer');
@@ -17,3 +18,9 @@ header.innerHTML = '<header-element></header-element>';
 footer.innerHTML = '<footer-text></footer-text>';
 
 HomePage.mainHome(main);
+
+const app = new App({
+  button: document.querySelector('.app-bar button'),
+  drawer: document.querySelector('.app-bar'),
+  content: document.querySelector('main'),
+});
