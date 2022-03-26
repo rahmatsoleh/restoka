@@ -1,14 +1,14 @@
 import UrlParser from '../../routes/url-parser';
+import sendReview from '../../utils/send-review';
 
 const DetailPage = {
   async render() {
-    // document.querySelector('main').innerHTML = '<loading-wait></loading-wait>';
+    const url = UrlParser.parseActiveWithoutCombiner().id;
+    return `<detail-restaurant data-id="${url}"></detail-restaurant>`;
   },
 
   async afterRender() {
-    const url = UrlParser.parseActiveWithoutCombiner().id;
-    const main = document.querySelector('main');
-    main.innerHTML = `<detail-restaurant data-id="${url}"></detail-restaurant>`;
+    // untuk tombol favorit
   },
 };
 

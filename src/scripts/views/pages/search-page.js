@@ -1,4 +1,5 @@
 import UrlParser from '../../routes/url-parser';
+import HomePage from './home-page';
 
 const SearchPage = {
   async render() {
@@ -16,6 +17,7 @@ const SearchPage = {
     document.querySelector('#hero input').value = urlQuery;
     exploreElement.setAttribute('keyword', urlQuery);
     main.append(exploreElement);
+    HomePage.afterRender();
   },
 };
 

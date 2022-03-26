@@ -1,5 +1,11 @@
 import swal from 'sweetalert';
 import RestaurantApi from '../data/restaurant-api';
+import { reviews } from '../views/template/detail-element';
+
+const reloadReviews = async (response) => {
+  const customerReviews = document.querySelector('.customer-review ul');
+  customerReviews.innerHTML = reviews(response.customerReviews);
+};
 
 const afterSending = async (response, element) => {
   element.querySelector('#name').value = '';
@@ -7,7 +13,8 @@ const afterSending = async (response, element) => {
   const responseApi = response;
 
   if (!responseApi.error) {
-    swal(responseApi.message, 'Message sent successfully', 'success');
+    swal(responseApi.message, 'Message sent successfully', 'success')
+      .then(reloadReviews(responseApi));
   }
 };
 

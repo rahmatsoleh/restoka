@@ -98,4 +98,5 @@ export {
   detailMenu,
   reviewElement,
   headerInfo,
+  reviews,
 };

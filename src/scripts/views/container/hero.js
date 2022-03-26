@@ -23,19 +23,6 @@ class Hero extends HTMLElement {
                 </div>
             </article>
         `;
-
-    this.querySelector('#hero form').addEventListener('submit', (event) => {
-      event.preventDefault();
-      this.searchData();
-    });
-  }
-
-  searchData() {
-    const query = this.querySelector('#hero form input').value;
-    const home = '#/';
-    const url = `#/search/${query}`;
-
-    (query) ? location.href = url : location.href = home;
   }
 }
 
