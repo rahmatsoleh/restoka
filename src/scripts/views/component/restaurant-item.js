@@ -1,5 +1,4 @@
 import '../../../styles/component/restaurant-item.scss';
-import HomePage from '../pages/home-page';
 
 class RestaurantItem extends HTMLElement {
   connectedCallback() {
@@ -10,7 +9,6 @@ class RestaurantItem extends HTMLElement {
     this.city = this.getAttribute('city');
     this.rating = this.getAttribute('rating');
     this.render();
-    this.addEventListener('click', this.visitDetail);
   }
 
   render() {
@@ -28,13 +26,6 @@ class RestaurantItem extends HTMLElement {
                 <p class="rating"><span>&#x2605;</span> ${this.rating}</p>
             </div>
         `;
-  }
-
-  visitDetail(e) {
-    if (e.target.nodeName === 'A') {
-      const main = document.querySelector('main');
-      HomePage.detailResto(main, e.target.dataset.id);
-    }
   }
 }
 

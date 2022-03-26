@@ -80,7 +80,8 @@
         }
       }
 
-      li:hover {
+      li:hover,
+      li.active {
         background-color: root.$orange;
         transition: 0.5s;
         a {

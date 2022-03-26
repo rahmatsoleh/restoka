@@ -16,7 +16,9 @@ class RestaurantApi {
     return data.restaurants;
   }
 
-  static async review(body) {
+  static async review(body, loading) {
+    loading.sending.classList.remove('d-none');
+    loading.netral.classList.add('d-none');
     try {
       const response = await fetch(API_ENDPOINT.REVIEW, {
         method: 'POST',
@@ -26,10 +28,13 @@ class RestaurantApi {
         body: JSON.stringify(body),
       });
       const responseJson = await response.json();
-
+      loading.sending.classList.add('d-none');
+      loading.netral.classList.remove('d-none');
       return responseJson;
     } catch (error) {
-      throw new Error('Terjadi error pada restauran-api review');
+      loading.sending.classList.add('d-none');
+      loading.netral.classList.remove('d-none');
+      return new Error('Terjadi error pada restauran-api review');
     }
   }
 

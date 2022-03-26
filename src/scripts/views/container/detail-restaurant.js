@@ -1,5 +1,7 @@
 import '../../../styles/component/detail-restaurant.scss';
-import { restaurants } from '../../../data-json/DATA.json';
+import * as template from '../template/detail-element';
+import RestaurantApi from '../../data/restaurant-api';
+import sendReview from '../../utils/send-review';
 
 class DetailRestaurant extends HTMLElement {
   connectedCallback() {
@@ -7,29 +9,38 @@ class DetailRestaurant extends HTMLElement {
     this.render();
   }
 
-  render() {
+  async render() {
     this.innerHTML = `
             <article id="detail-resto">
-                ${this.findResto(this.dataId)}
+                ${await this.afterRender(this.dataId)}
             </article>
         `;
+    const formReview = document.querySelector('.review form');
+    formReview.addEventListener('submit', (event) => {
+      event.preventDefault();
+      sendReview(this);
+    });
   }
 
-  findResto(dataId) {
-    const resto = restaurants.find((resto) => resto.id === dataId);
+  async afterRender(dataId) {
+    const resto = await RestaurantApi.detail(dataId);
 
-    const elementDetail = `
-            <div class="resto-image">
-                <img src="${resto.pictureId}" alt="${resto.name}"/>
-            </div>
-            <div class="resto-info">
-                <h2 tabindex="0">${resto.name}</h2>
-                <p class="city">&#x1F4CD; ${resto.city}</p>
-                <p tabindex="0 ">${resto.description}</p>
-            </div>
-            <p class="rating"><span>&#x2605;</span> ${resto.rating}</p>
-        `;
-    return elementDetail;
+    const elements = `
+      <section class="detail-header">
+        ${template.headerInfo(resto)}
+      </section>
+      <section class="detail-description">
+        <h3>Description</h3>
+        <p>${resto.description}</p>
+      </section>
+      <section class="detail-menu">
+        ${template.detailMenu(resto.menus)}
+      </section>
+      <section class="review">
+        ${template.reviewElement(resto)}
+      </section>
+    `;
+    return elements;
   }
 }
 

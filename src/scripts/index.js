@@ -27,6 +27,7 @@ const app = new App({
 
 window.addEventListener('hashchange', () => {
   app.renderPage();
+  document.querySelector('.app-bar').classList.remove('show');
 });
 
 window.addEventListener('load', () => {
