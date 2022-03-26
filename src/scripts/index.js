@@ -8,6 +8,7 @@ import './views/container/footer-text';
 import './views/container/detail-restaurant';
 import './views/component/skip-content';
 import './views/container/loading';
+import swRegister from './utils/sw-register';
 import App from './views/app';
 
 const header = document.querySelector('header');
@@ -29,4 +30,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
+  swRegister();
 });

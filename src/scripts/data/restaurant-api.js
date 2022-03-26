@@ -1,3 +1,4 @@
+import swal from 'sweetalert';
 import API_ENDPOINT from '../globals/api-endpoint';
 
 class RestaurantApi {
@@ -34,7 +35,7 @@ class RestaurantApi {
     } catch (error) {
       loading.sending.classList.add('d-none');
       loading.netral.classList.remove('d-none');
-      return new Error('Terjadi error pada restauran-api review');
+      swal('Uppss..!', error.message, 'error');
     }
   }
 
@@ -48,7 +49,7 @@ class RestaurantApi {
       return responseJson;
     } catch (error) {
       loading.classList.toggle('d-none');
-      throw new Error('Terjadi Error pada _sendRequest');
+      swal('Uppss..!', error.message, 'error');
     }
   }
 }
