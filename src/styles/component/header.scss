@@ -2,11 +2,6 @@
 @use "../lib/mixin.scss" as mixin;
 
 .app-bar {
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  // z-index: 3;
   .header-element {
     @include mixin.flex(space-between, center);
     padding: 1em;

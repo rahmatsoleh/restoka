@@ -1,6 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const { InjectManifest } = require('workbox-webpack-plugin');
 const path = require('path');
@@ -70,9 +69,9 @@ module.exports = {
         },
       ],
     }),
-    new InjectManifest({
-      swSrc: path.resolve(__dirname, 'src/scripts/service-worker.js'),
-      swDest: 'service-worker.js',
-    }),
+    // new InjectManifest({
+    //   swSrc: path.resolve(__dirname, 'src/scripts/service-worker.js'),
+    //   swDest: 'service-worker.js',
+    // }),
   ],
 };

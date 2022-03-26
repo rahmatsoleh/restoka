@@ -1,0 +1,48 @@
+@use "../lib/root.scss" as root;
+@use "../lib/mixin.scss" as mixin;
+
+main {
+  min-height: 80vh;
+}
+
+#favorite {
+  margin-top: 110px;
+  h2 {
+    color: root.$red;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .favorite-collection {
+    margin-top: 1em;
+
+    .nothing-favorite {
+      text-align: center;
+
+      img {
+        width: 100px;
+      }
+      p {
+        font-size: 1.5em;
+        font-weight: 600;
+        font-style: italic;
+        color: root.$dark;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #favorite {
+    h2 {
+      font-size: 2em;
+    }
+    margin-top: 130px;
+    .favorite-collection {
+      margin-top: 2em;
+      @include mixin.flex(center, center);
+      gap: 2em;
+      flex-wrap: wrap;
+    }
+  }
+}

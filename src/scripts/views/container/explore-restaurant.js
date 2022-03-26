@@ -25,7 +25,7 @@ class ExploreRestaurant extends HTMLElement {
     const restaurants = await this.findRestaurants();
     const nothingList = `
             <div class="nothing-resto">
-                <img src="images/restaurant.png" alt=""/>
+                <img src="images/restaurant.png" alt="No Result Collections"/>
                 <p>No Result Collections</p>
             </div>`;
 
