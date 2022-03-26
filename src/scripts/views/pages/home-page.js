@@ -26,16 +26,16 @@
 
 const HomePage = {
   async render() {
-    return `
+    // document.querySelector('main').innerHTML = '<loading-wait></loading-wait>';
+  },
+
+  async afterRender() {
+    document.querySelector('main').innerHTML = `
       <hero-element></hero-element>
       <category-food></category-food>
       <slogan-comp></slogan-comp>
       <explore-restaurant></explore-restaurant>
     `;
-  },
-
-  async afterRender() {
-    console.log('Halaman Home');
   },
 };
 

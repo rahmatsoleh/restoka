@@ -1,0 +1,38 @@
+@use "../lib/root.scss" as root;
+@use "../lib/mixin.scss" as mixin;
+
+.loading {
+  @include mixin.flex(center, center);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9999;
+  background-color: rgba($color: root.$light, $alpha: 0.95);
+
+  &.d-none {
+    display: none;
+  }
+
+  div {
+    @include mixin.ping();
+    width: 70px;
+    height: 70px;
+    background-color: root.$orange;
+    border-radius: 50%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  main {
+    min-height: 100vh;
+  }
+  .loading {
+    div {
+      width: 100px;
+      height: 100px;
+      background-color: root.$orange;
+    }
+  }
+}

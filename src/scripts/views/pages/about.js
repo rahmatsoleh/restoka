@@ -1,6 +1,6 @@
 const AboutPage = {
   async render() {
-    console.log('Halaman About');
+    // document.querySelector('main').innerHTML = '<loading-wait></loading-wait>';
   },
 
   async afterRender() {

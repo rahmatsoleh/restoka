@@ -2,7 +2,7 @@ import UrlParser from '../../routes/url-parser';
 
 const DetailPage = {
   async render() {
-    // console.log('Halaman Detail');
+    // document.querySelector('main').innerHTML = '<loading-wait></loading-wait>';
   },
 
   async afterRender() {

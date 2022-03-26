@@ -1,6 +1,6 @@
 const FavoritePage = {
   async render() {
-    console.log('Halaman FavoritePage');
+    // document.querySelector('main').innerHTML = '<loading-wait></loading-wait>';
   },
 
   async afterRender() {

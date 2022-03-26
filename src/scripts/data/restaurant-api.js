@@ -39,11 +39,15 @@ class RestaurantApi {
   }
 
   static async _sendRequest(url) {
+    const loading = document.querySelector('.loading');
+    loading.classList.toggle('d-none');
     try {
       const response = await fetch(url);
       const responseJson = await response.json();
+      loading.classList.toggle('d-none');
       return responseJson;
     } catch (error) {
+      loading.classList.toggle('d-none');
       throw new Error('Terjadi Error pada _sendRequest');
     }
   }
