@@ -20,11 +20,16 @@ class App {
   }
 
   async renderPage() {
+    window.scrollTo({ top: 0 });
     const url = UrlParser.parseActiveUrlWithCombiner();
-    const page = routes[url];
+    const page = this.getPage(url);
     this._content.innerHTML = await page.render();
     await page.render();
     await page.afterRender();
+  }
+
+  getPage(url) {
+    return routes[url] || routes['/404'];
   }
 }
 

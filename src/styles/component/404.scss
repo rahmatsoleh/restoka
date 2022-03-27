@@ -1,0 +1,15 @@
+.not-found {
+  margin-top: 150px;
+  width: 100%;
+
+  img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .not-found {
+    width: 700px;
+    margin: 150px auto -150px;
+  }
+}

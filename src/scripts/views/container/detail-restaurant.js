@@ -16,31 +16,38 @@ class DetailRestaurant extends HTMLElement {
             </article>
         `;
     const formReview = document.querySelector('.review form');
-    formReview.addEventListener('submit', (event) => {
-      event.preventDefault();
-      sendReview(this);
-    });
+    if (formReview) {
+      formReview.addEventListener('submit', (event) => {
+        event.preventDefault();
+        sendReview(this);
+      });
+    }
   }
 
   async afterRender(dataId) {
     const resto = await RestaurantApi.detail(dataId);
 
-    const elements = `
-      <section class="detail-header">
-        ${template.headerInfo(resto)}
-      </section>
-      <section class="detail-description">
-        <h3>Description</h3>
-        <p>${resto.description}</p>
-      </section>
-      <section class="detail-menu">
-        ${template.detailMenu(resto.menus)}
-      </section>
-      <section class="review">
-        ${template.reviewElement(resto)}
-      </section>
-    `;
-    return elements;
+    if (resto.name) {
+      const elements = `
+        <section class="detail-header">
+          ${template.headerInfo(resto)}
+        </section>
+        <section class="detail-description">
+          <h3>Description</h3>
+          <p>${resto.description}</p>
+        </section>
+        <section class="detail-menu">
+          ${template.detailMenu(resto.menus)}
+        </section>
+        <section class="review">
+          ${template.reviewElement(resto)}
+        </section>
+      `;
+      return elements;
+    }
+
+    location.href = '#/404';
+    return '';
   }
 }
 

@@ -10,9 +10,11 @@ const generateAvatar = (name) => createAvatar(avatarStyle, {
 
 const categories = (dataCategories) => {
   let element = '';
-  dataCategories.forEach((item) => {
-    element += `<span>${item.name}</span>`;
-  });
+  if (dataCategories) {
+    dataCategories.forEach((item) => {
+      element += `<span>${item.name}</span>`;
+    });
+  }
   return element;
 };
 
@@ -26,20 +28,22 @@ const menus = (dataMenu) => {
 
 const reviews = (customers) => {
   let reviews = '';
-  customers.forEach((item) => {
-    reviews += `
-        <li>
-          <div class="avatar">
-            ${generateAvatar(item.name)}
-          </div>
-          <div class="review-detail">
-            <p class="name">${item.name}</p>
-            <p class="date">${item.date}</p>
-            <p class="review-message">${item.review}</p>
-          </div>
-        </li>
-      `;
-  });
+  if (customers) {
+    customers.forEach((item) => {
+      reviews += `
+          <li>
+            <div class="avatar">
+              ${generateAvatar(item.name)}
+            </div>
+            <div class="review-detail">
+              <p class="name">${item.name}</p>
+              <p class="date">${item.date}</p>
+              <p class="review-message">${item.review}</p>
+            </div>
+          </li>
+        `;
+    });
+  }
 
   return reviews;
 };
@@ -61,16 +65,21 @@ const headerInfo = (dataResto) => `
   </div>
   `;
 
-const detailMenu = (dataMenu) => `
-  <div class="food">
-    <p>Food Menus</p>
-    <ol>${menus(dataMenu.foods)}</ol>
-  </div>
-  <div class="drink">
-    <p>Drink Menus</p>
-    <ol>${menus(dataMenu.drinks)}</ol>
-  </div>
-  `;
+const detailMenu = (dataMenu) => {
+  if (dataMenu) {
+    return `
+    <div class="food">
+      <p>Food Menus</p>
+      <ol>${menus(dataMenu.foods)}</ol>
+    </div>
+    <div class="drink">
+      <p>Drink Menus</p>
+      <ol>${menus(dataMenu.drinks)}</ol>
+    </div>
+    `;
+  }
+  return '';
+};
 
 const reviewElement = (resto) => `
   <div class="form-review">

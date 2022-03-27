@@ -14,15 +14,18 @@ const LikeButtonInitiator = {
   },
   async _getApi(id) {
     const restaurant = await RestaurantApi.detail(id);
-    const resultResto = {
-      id: restaurant.id,
-      name: restaurant.name,
-      description: restaurant.description,
-      pictureId: restaurant.pictureId,
-      city: restaurant.city,
-      rating: restaurant.rating,
-    };
-    return resultResto;
+    if (restaurant) {
+      const resultResto = {
+        id: restaurant.id,
+        name: restaurant.name,
+        description: restaurant.description,
+        pictureId: restaurant.pictureId,
+        city: restaurant.city,
+        rating: restaurant.rating,
+      };
+      return resultResto;
+    }
+    return { id };
   },
   async _renderButton() {
     const { id } = await this._restaurant;
@@ -41,32 +44,36 @@ const LikeButtonInitiator = {
     this._likeButtonContainer.innerHTML = createLikedButtonTemplate();
 
     const likeButton = document.querySelector('#likeButton');
-    likeButton.addEventListener('click', async () => {
-      const restaurant = await this._restaurant;
-      await FavoriteRestoDB.deleteResto(restaurant.id);
-      swal('Success', `${restaurant.name} remove from favorite list`, 'success');
-      this._renderButton();
-    });
+    if (likeButton) {
+      likeButton.addEventListener('click', async () => {
+        const restaurant = await this._restaurant;
+        await FavoriteRestoDB.deleteResto(restaurant.id);
+        swal('Success', `${restaurant.name} remove from favorite list`, 'success');
+        this._renderButton();
+      });
+    }
   },
   async _renderLike() {
     this._likeButtonContainer.innerHTML = createLikeButtonTemplate();
 
     const likeButton = document.querySelector('#likeButton');
-    likeButton.addEventListener('click', async () => {
-      const restaurant = await this._restaurant;
-      await FavoriteRestoDB.putResto(restaurant);
-      swal('Success', `${restaurant.name} add to favorite list`, 'success')
-        .then(() => {
-          NotificationHelper.sendNotification({
-            title: `${restaurant.name} add to favorite list`,
-            options: {
-              body: restaurant.description,
-              image: API_ENDPOINT.PICTURE_SM(restaurant.pictureId),
-            },
+    if (likeButton) {
+      likeButton.addEventListener('click', async () => {
+        const restaurant = await this._restaurant;
+        await FavoriteRestoDB.putResto(restaurant);
+        swal('Success', `${restaurant.name} add to favorite list`, 'success')
+          .then(() => {
+            NotificationHelper.sendNotification({
+              title: `${restaurant.name} add to favorite list`,
+              options: {
+                body: restaurant.description,
+                image: API_ENDPOINT.PICTURE_SM(restaurant.pictureId),
+              },
+            });
           });
-        });
-      this._renderButton();
-    });
+        this._renderButton();
+      });
+    }
   },
 };
 

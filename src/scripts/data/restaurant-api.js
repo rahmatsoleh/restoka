@@ -8,8 +8,12 @@ class RestaurantApi {
   }
 
   static async detail(id) {
-    const data = await this._sendRequest(API_ENDPOINT.DETAIL(id));
-    return data.restaurant;
+    try {
+      const data = await this._sendRequest(API_ENDPOINT.DETAIL(id));
+      return data.restaurant;
+    } catch (error) {
+      return { id };
+    }
   }
 
   static async search(query) {
@@ -46,7 +50,11 @@ class RestaurantApi {
       const response = await fetch(url);
       const responseJson = await response.json();
       loading.classList.toggle('d-none');
-      return responseJson;
+      if (responseJson.error) {
+        throw new Error(responseJson.message);
+      } else {
+        return responseJson;
+      }
     } catch (error) {
       loading.classList.toggle('d-none');
       swal('Uppss..!', error.message, 'error');
