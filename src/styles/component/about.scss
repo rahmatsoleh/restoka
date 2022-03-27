@@ -1,0 +1,121 @@
+@use "../lib/root.scss" as root;
+@use "../lib/mixin.scss" as mixin;
+
+.about {
+  margin-top: 120px;
+  h2 {
+    color: root.$dark;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+  }
+  .container {
+    width: 250px;
+    height: 300px;
+    background-color: root.$light;
+    margin: auto;
+    position: relative;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    box-sizing: border-box;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      background-color: root.$orange;
+      height: 140px;
+      border-bottom-left-radius: 50% 50%;
+      border-bottom-right-radius: 50% 50%;
+    }
+
+    .img-thumb {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      overflow: hidden;
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -110%);
+      border: 3px solid #ddd;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-position: center;
+        object-fit: cover;
+      }
+    }
+
+    .bio {
+      width: fit-content;
+      position: absolute;
+      z-index: 2;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 0%);
+      text-align: center;
+
+      h3 {
+        text-transform: uppercase;
+        color: root.$dark;
+      }
+
+      a {
+        text-decoration: none;
+        display: inline-block;
+        font-size: 1.2em;
+        font-weight: 600;
+        background-color: root.$orange;
+        color: root.$light;
+        padding: 8px 15px;
+        border-radius: 5px;
+        margin-top: 1em;
+
+        &:hover {
+          background-color: #d17e0a;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width: 768px) {
+  .about {
+    margin-top: 130px;
+
+    h2 {
+      font-size: 2.5em;
+      color: root.$red;
+    }
+
+    .container {
+      width: 500px;
+      height: 400px;
+
+      &::after {
+        height: 200px;
+      }
+
+      .img-thumb {
+        width: 150px;
+        height: 150px;
+      }
+
+      .bio {
+        transform: translate(-50%, 20%);
+
+        h3 {
+          font-size: 2em;
+          color: root.$red;
+        }
+      }
+    }
+  }
+}
