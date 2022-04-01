@@ -29,6 +29,7 @@
         "no-undef": "off",
         "no-prototype-builtins": "off",
         "no-return-assign": "off",
-        "no-confusing-arrow": "off"
+        "no-confusing-arrow": "off",
+        "no-await-in-loop": "off"
     }
 }
