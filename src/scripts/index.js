@@ -1,4 +1,7 @@
 import 'regenerator-runtime'; /* for async await transpile */
+import '../styles/component/like-button.scss';
+import '../styles/component/explore-restaurant.scss';
+import '../styles/component/restaurant-item.scss';
 import './views/container/header';
 import './views/container/hero';
 import './views/container/catagory-food';
@@ -30,5 +33,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
-  swRegister();
+  // swRegister();
 });

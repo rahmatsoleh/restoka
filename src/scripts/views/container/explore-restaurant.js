@@ -1,5 +1,4 @@
 import '../component/restaurant-item';
-import '../../../styles/component/explore-restaurant.scss';
 import RestaurantApi from '../../data/restaurant-api';
 import API_ENDPOINT from '../../globals/api-endpoint';
 

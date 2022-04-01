@@ -30,6 +30,7 @@ const sendReview = async (element) => {
 
   const response = await RestaurantApi.review(body, loadingElement);
   afterSending(response, element);
+  return response;
 };
 
 export default sendReview;

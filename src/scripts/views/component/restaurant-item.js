@@ -1,5 +1,3 @@
-import '../../../styles/component/restaurant-item.scss';
-
 class RestaurantItem extends HTMLElement {
   connectedCallback() {
     this.id = this.getAttribute('id');

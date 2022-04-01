@@ -25,6 +25,10 @@
         "no-extraneous-dependencies": "off",
         "no-console": "off",
         "import/no-extraneous-dependencies": ["off"],
-        "consistent-return": "off"
+        "consistent-return": "off",
+        "no-undef": "off",
+        "no-prototype-builtins": "off",
+        "no-return-assign": "off",
+        "no-confusing-arrow": "off"
     }
 }

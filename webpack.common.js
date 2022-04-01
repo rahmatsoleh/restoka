@@ -45,33 +45,33 @@ module.exports = {
         },
       ],
     }),
-    new WebpackPwaManifest({
-      name: 'Restoka',
-      short_name: 'Restoka',
-      description: 'Find any restaurants easily with Restoka',
-      background_color: '#ffffff',
-      theme_color: '#ff9f1c',
-      crossorigin: 'use-credentials',
-      start_url: '/index.html',
-      inject: true,
-      ios: true,
-      icons: [
-        {
-          src: path.resolve(__dirname, 'src/public/images/logo.png'),
-          sizes: [96, 128, 192, 256, 384, 512],
-          purpose: 'maskable',
-          ios: true,
-        },
-        {
-          src: path.resolve(__dirname, 'src/public/images/logo.png'),
-          sizes: '144x144',
-          purpose: 'any',
-        },
-      ],
-    }),
-    new InjectManifest({
-      swSrc: path.resolve(__dirname, 'src/scripts/service-worker.js'),
-      swDest: 'service-worker.js',
-    }),
+    // new WebpackPwaManifest({
+    //   name: 'Restoka',
+    //   short_name: 'Restoka',
+    //   description: 'Find any restaurants easily with Restoka',
+    //   background_color: '#ffffff',
+    //   theme_color: '#ff9f1c',
+    //   crossorigin: 'use-credentials',
+    //   start_url: '/index.html',
+    //   inject: true,
+    //   ios: true,
+    //   icons: [
+    //     {
+    //       src: path.resolve(__dirname, 'src/public/images/logo.png'),
+    //       sizes: [96, 128, 192, 256, 384, 512],
+    //       purpose: 'maskable',
+    //       ios: true,
+    //     },
+    //     {
+    //       src: path.resolve(__dirname, 'src/public/images/logo.png'),
+    //       sizes: '144x144',
+    //       purpose: 'any',
+    //     },
+    //   ],
+    // }),
+    // new InjectManifest({
+    //   swSrc: path.resolve(__dirname, 'src/scripts/service-worker.js'),
+    //   swDest: 'service-worker.js',
+    // }),
   ],
 };

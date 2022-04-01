@@ -2,6 +2,10 @@
 
 .likeButtonContainer {
   button {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
     background-color: root.$red;
     position: fixed;
     bottom: 40px;
@@ -9,14 +13,16 @@
     border-radius: 50px;
     border-color: transparent;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    font-size: 3rem;
+    color: root.$light;
 
     &:hover {
       cursor: pointer;
       background-color: #b60d20;
     }
-    img {
-      width: 50px;
-      height: 50px;
+
+    &[aria-label="unlike this Restaurant"] {
+      font-size: 2rem;
     }
   }
 }

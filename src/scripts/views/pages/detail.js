@@ -1,5 +1,7 @@
 import UrlParser from '../../routes/url-parser';
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonPresenter from '../../utils/like-button-presenter';
+import RestaurantApi from '../../data/restaurant-api';
+import FavoriteRestoDB from '../../data/restoka-idb';
 
 const DetailPage = {
   async render() {
@@ -10,10 +12,25 @@ const DetailPage = {
 
   async afterRender() {
     const url = UrlParser.parseActiveWithoutCombiner().id;
-    LikeButtonInitiator.init({
-      likeButtonContainer: document.querySelector('.likeButtonContainer'),
-      id: url,
-    });
+    const dataRestaurant = await RestaurantApi.detail(url);
+    const restaurant = {
+      id: dataRestaurant.id,
+      name: dataRestaurant.name,
+      description: dataRestaurant.description,
+      pictureId: dataRestaurant.pictureId,
+      city: dataRestaurant.city,
+      rating: dataRestaurant.rating,
+    };
+
+    const likeButtonContainer = document.querySelector('.likeButtonContainer');
+
+    if (likeButtonContainer) {
+      LikeButtonPresenter.init({
+        likeButtonContainer,
+        restaurant,
+        FavoriteRestoDB,
+      });
+    }
   },
 };
 
