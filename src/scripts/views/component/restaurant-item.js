@@ -1,3 +1,5 @@
+import API_ENDPOINT from '../../globals/api-endpoint';
+
 class RestaurantItem extends HTMLElement {
   connectedCallback() {
     this.id = this.getAttribute('id');
@@ -13,7 +15,7 @@ class RestaurantItem extends HTMLElement {
     this.innerHTML = `
             <div class="resto-item">
                 <div class="resto-thumb">
-                    <img src="${this.image}" alt="${this.name}"/>
+                  <img data-src="${API_ENDPOINT.PICTURE_SM(this.image)}" alt="${this.name}" class="lazyload"/>
                 </div>
                 <div class="resto-desc">
                     <h3 tabindex="0">${this.name}</h3>

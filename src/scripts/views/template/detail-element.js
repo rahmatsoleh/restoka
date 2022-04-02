@@ -51,7 +51,12 @@ const reviews = (customers) => {
 const headerInfo = (dataResto) => `
   <div class="detail-hero">
     <div class="img-thumb">
-    <img src="${API_ENDPOINT.PICTURE_MD(dataResto.pictureId)}" alt="${dataResto.name}"/>
+      <picture>
+        <source media="(max-width: 720px)" srcset="${API_ENDPOINT.PICTURE_SM(dataResto.pictureId)}">
+        <source media="(max-width: 1024px)" srcset="${API_ENDPOINT.PICTURE_MD(dataResto.pictureId)}">
+        <source media="(max-width: 1200px)" srcset="${API_ENDPOINT.PICTURE_LG(dataResto.pictureId)}">
+        <img src="${API_ENDPOINT.PICTURE_LG(dataResto.pictureId)}" alt="${dataResto.name}">
+      </picture>
     </div>
     <p class="rating"><span>&#x2605;</span> ${dataResto.rating}</p>
   </div>

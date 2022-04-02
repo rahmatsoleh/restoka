@@ -1,6 +1,5 @@
 import '../component/restaurant-item';
 import RestaurantApi from '../../data/restaurant-api';
-import API_ENDPOINT from '../../globals/api-endpoint';
 
 class ExploreRestaurant extends HTMLElement {
   connectedCallback() {
@@ -24,7 +23,7 @@ class ExploreRestaurant extends HTMLElement {
     const restaurants = await this.findRestaurants();
     const nothingList = `
             <div class="nothing-resto">
-                <img src="images/restaurant.png" alt="No Result Collections"/>
+                <img data-src="images/restaurant.png" alt="No Result Collections" class="lazyload"/>
                 <p>No Result Collections</p>
             </div>`;
 
@@ -34,7 +33,7 @@ class ExploreRestaurant extends HTMLElement {
                     id="${resto.id}"
                     name="${resto.name}"
                     desc="${resto.description}"
-                    image="${API_ENDPOINT.PICTURE_SM(resto.pictureId)}"
+                    image="${resto.pictureId}"
                     city="${resto.city}"
                     rating="${resto.rating}"
                 ></restaurant-item>`;

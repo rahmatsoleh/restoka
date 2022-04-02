@@ -8,7 +8,7 @@ class Profile extends HTMLElement {
   render() {
     this.innerHTML = `
     <div class="img-thumb">
-      <img src="images/rahmsol.jpg" alt="rahmat soleh"/>
+      <img data-src="images/rahmsol.jpg" alt="rahmat soleh" class="lazyload"/>
     </div>
     <div class="bio">
       <h3>Rahmat Soleh</h3>

@@ -1,6 +1,5 @@
 import '../../../styles/component/favorite-page.scss';
 import FavoriteRestoDB from '../../data/restoka-idb';
-import API_ENDPOINT from '../../globals/api-endpoint';
 import '../component/restaurant-item';
 
 const FavoritePage = {
@@ -29,7 +28,7 @@ const FavoritePage = {
               id="${resto.id}"
               name="${resto.name}"
               desc="${resto.description}"
-              image="${API_ENDPOINT.PICTURE_SM(resto.pictureId)}"
+              image="${resto.pictureId}"
               city="${resto.city}"
               rating="${resto.rating}"
           ></restaurant-item>`;

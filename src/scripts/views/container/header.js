@@ -10,7 +10,7 @@ class Header extends HTMLElement {
     this.innerHTML = `
             <div class="app-bar">
                 <div class="header-element">
-                    <img src="${Brand}" alt="Restoka"/>
+                    <img data-src="./images/Restoka.svg" alt="Restoka" class="lazyload"/>
                     <button aria-label="Navigation Button">
                         <div class="btn-burger"></div>
                     </button>

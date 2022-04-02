@@ -13,6 +13,11 @@
     right: 0;
     z-index: 3;
 
+    img {
+      width: 174px;
+      height: 64px;
+    }
+
     button {
       @include mixin.flex(center, center);
       width: 48px;
@@ -53,7 +58,7 @@
     box-shadow: 0 0 10px root.$orange;
     margin: 1em auto 0;
     transform: translateX(-100vw);
-    transition: 0.3s ease-in-out;
+    transition: 0.09s linear;
     background-color: root.$light;
     position: absolute;
     top: 90px;
@@ -78,7 +83,7 @@
       li:hover,
       li.active {
         background-color: root.$orange;
-        transition: 0.5s;
+        transition: 0.09s;
         a {
           color: root.$light;
         }
@@ -102,7 +107,7 @@
     }
     nav {
       transform: translateX(0px);
-      transition: 0.3s ease-in-out;
+      transition: 0.09s linear;
     }
   }
 }

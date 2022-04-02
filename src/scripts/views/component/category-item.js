@@ -11,7 +11,7 @@ class CategoryItem extends HTMLElement {
     this.innerHTML = `
             <a href="#/search/${this.title}" class="category-item">
                 <div class="thumb-img">
-                    <img src="${this.image}" alt="${this.title}"/>
+                    <img data-src="${this.image}" alt="${this.title}" class="lazyload" />
                 </div>
                 <h3>${this.title}</h3>
             </a>

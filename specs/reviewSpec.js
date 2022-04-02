@@ -26,10 +26,11 @@ describe('Review Restaurant', () => {
   });
 
   it('Should be able to provide a review when all inputs are filled in', async () => {
+    const uniq = () => `_${Math.random().toString(36).substring(2, 9)}`;
     const responseReview = await testReview({
       id: 'fnfn8mytkpmkfw1e867',
-      name: 'test',
-      message: 'recomended',
+      name: `John${uniq()}`,
+      message: `John test spec${uniq}`,
     });
 
     const reviews = document.querySelectorAll('.customer-review ul li');
@@ -39,19 +40,21 @@ describe('Review Restaurant', () => {
   });
 
   it('Should not be able to display a review if the name is not filled', async () => {
+    const uniq = () => `_${Math.random().toString(36).substring(2, 9)}`;
     const responseReview = await testReview({
       id: 'fnfn8mytkpmkfw1e867',
       name: '',
-      message: 'recomended',
+      message: `John test spec${uniq}`,
     });
 
     expect(responseReview.error).toBeTruthy();
   });
 
   it('Should not be able to display a review if the message is not filled', async () => {
+    const uniq = () => `_${Math.random().toString(36).substring(2, 9)}`;
     const responseReview = await testReview({
       id: 'fnfn8mytkpmkfw1e867',
-      name: 'test',
+      name: `John${uniq()}`,
       message: '',
     });
 
@@ -59,20 +62,22 @@ describe('Review Restaurant', () => {
   });
 
   it('Should not be able to display a review if the id restaurant is not filled', async () => {
+    const uniq = () => `_${Math.random().toString(36).substring(2, 9)}`;
     const responseReview = await testReview({
       id: '',
-      name: 'test',
-      message: 'recomended',
+      name: `John${uniq()}`,
+      message: `John test spec${uniq}`,
     });
 
     expect(responseReview.error).toBeTruthy();
   });
 
   it('Should not be able to show preview if restaurant ID is wrong', async () => {
+    const uniq = () => `_${Math.random().toString(36).substring(2, 9)}`;
     const responseReview = await testReview({
       id: 'abcdefghijklmn',
-      name: 'test',
-      message: 'recomended',
+      name: `John${uniq()}`,
+      message: `John test spec${uniq}`,
     });
 
     expect(responseReview.error).toBeTruthy();

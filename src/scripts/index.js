@@ -1,4 +1,6 @@
 import 'regenerator-runtime'; /* for async await transpile */
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
 import '../styles/component/like-button.scss';
 import '../styles/component/explore-restaurant.scss';
 import '../styles/component/restaurant-item.scss';
@@ -33,5 +35,5 @@ window.addEventListener('hashchange', () => {
 
 window.addEventListener('load', () => {
   app.renderPage();
-  // swRegister();
+  swRegister();
 });
