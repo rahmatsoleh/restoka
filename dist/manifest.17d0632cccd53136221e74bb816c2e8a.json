@@ -1,0 +1,54 @@
+{
+  "icons": [
+    {
+      "src": "icon_144x144.c6b191cae62a08da7b3df90fc8fadb65.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon_512x512.d20a861f342e369f46159220da72e136.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon_384x384.59c8a33882872320fee630a3ea1df54d.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon_256x256.9afb05ede754f505e2eb6017867edf21.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon_192x192.7b1867fb6f877bf0a388cd1d0a8406d6.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon_128x128.66eb57976640e89144b200d4a9f42036.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon_96x96.4cf2c741526d41a0ba2ea48891017022.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "name": "Restoka",
+  "short_name": "Restoka",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/index.html",
+  "description": "Find any restaurants easily with Restoka",
+  "background_color": "#ffffff",
+  "theme_color": "#ff9f1c"
+}
